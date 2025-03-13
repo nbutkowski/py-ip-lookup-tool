@@ -1,6 +1,6 @@
 import unittest
 
-from utils import find_matching_cidr
+from utils.ip_utils import find_matching_cidr
 
 class TestIpInCidr(unittest.TestCase):
     def test_ip_inside_cidr(self):

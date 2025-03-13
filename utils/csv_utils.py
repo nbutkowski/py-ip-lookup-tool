@@ -15,7 +15,7 @@ def read_csv_as_dict(file_path):
 def write_dict_to_csv(file_path, data, fieldnames):
     """Writes a list of dictionaries to a CSV file, ensuring only valid fields are written."""
     with open(file_path, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction='ignore')
         writer.writeheader()
 
         for row in data:

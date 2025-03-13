@@ -9,10 +9,20 @@ def cli():
     """CLI tool to reconcile host, ip, and a network"""
 
 @cli.command()
+@click.argument("ip")
+@click.argument("cidr")
+def network_lookup(ip, cidr):
+    """Check if an IP address is inside a CIDR block."""
+    if find_matching_cidr(ip, cidr):
+        print(f"{ip} is in {cidr}")
+    else:
+        print(f"{ip} is not in {cidr}")
+
+@cli.command()
 @click.argument("host-list-csv")
 @click.argument("network-list-csv")
-@click.option("--output-csv", default="out/reconciled.csv")
-def reconcile(host_list_csv, network_list_csv, output_csv):
+@click.option("--output-csv", default="data/out/reconciled.csv")
+def bulk_network_lookup(host_list_csv, network_list_csv, output_csv):
     """Reconcile host, ip, and network"""
     host_list = read_csv_as_dict(host_list_csv)
     network_list = read_csv_as_list(network_list_csv)
