@@ -18,8 +18,8 @@ cd py-ip-lookup-tool
 
 ### Create a Virtual Environment
 ```sh
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate      # Windows
 ```
 
 ### Install Dependencies
